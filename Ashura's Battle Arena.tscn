@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6l474bdqo67l"]
+
+[ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_bm5xd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_123sg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yes8a"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iiy0a"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 3.56743, 11.515, -8.38252)
+shadow_enabled = true
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04469, 0)
+script = ExtResource("1_bm5xd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_123sg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_yes8a")
+
+[node name="Camera3D" type="Camera3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 0.962833, 0.270096, 0, -0.270096, 0.962833, -0.003474, 1.76944, 2.57694)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(10.0171, 0, 0, 0, 10.0171, 0, 0, 0, 10.0171, 0, 0, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_iiy0a")
