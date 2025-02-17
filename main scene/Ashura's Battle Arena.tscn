@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6l474bdqo67l"]
+[gd_scene load_steps=7 format=3 uid="uid://b6l474bdqo67l"]
 
-[ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_bm5xd"]
+[ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_g7h5f"]
+[ext_resource type="PackedScene" uid="uid://bmb0807o2ij13" path="res://main scene/child scenes/enemy.tscn" id="2_5551l"]
+[ext_resource type="PackedScene" uid="uid://c7tqguxrsbftq" path="res://main scene/child scenes/health_bar.tscn" id="3_adtqx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_123sg"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_yes8a"]
+[sub_resource type="PrismMesh" id="PrismMesh_1y87l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iiy0a"]
 
@@ -16,18 +18,29 @@ shadow_enabled = true
 
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04469, 0)
-script = ExtResource("1_bm5xd")
+script = ExtResource("1_g7h5f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 shape = SubResource("CapsuleShape3D_123sg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
-mesh = SubResource("CapsuleMesh_yes8a")
+mesh = SubResource("PrismMesh_1y87l")
 
-[node name="Camera3D" type="Camera3D" parent="Player"]
+[node name="CameraPivot" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.962833, 0.270096, 0, -0.270096, 0.962833, -0.003474, 1.76944, 2.57694)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(10.0171, 0, 0, 0, 10.0171, 0, 0, 0, 10.0171, 0, 0, 0)
 use_collision = true
 mesh = SubResource("PlaneMesh_iiy0a")
+
+[node name="Enemy" parent="." instance=ExtResource("2_5551l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
+
+[node name="HealthBar" parent="." instance=ExtResource("3_adtqx")]
+offset_left = 330.0
+offset_top = 44.0
+offset_right = 830.0
+offset_bottom = 71.0
