@@ -25,7 +25,7 @@ offset_right = 500.0
 offset_bottom = 27.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_y65r2")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8nwsl")
-value = 60.0
+value = 100.0
 script = ExtResource("1_tmukn")
 
 [node name="DamageBar" type="ProgressBar" parent="."]
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_ve65u")
 theme_override_styles/fill = SubResource("StyleBoxFlat_1d3ui")
-value = 90.0
+value = 100.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]

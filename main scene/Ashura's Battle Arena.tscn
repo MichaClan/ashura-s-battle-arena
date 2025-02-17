@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6l474bdqo67l"]
+[gd_scene load_steps=8 format=3 uid="uid://b6l474bdqo67l"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_g7h5f"]
 [ext_resource type="PackedScene" uid="uid://bmb0807o2ij13" path="res://main scene/child scenes/enemy.tscn" id="2_5551l"]
 [ext_resource type="PackedScene" uid="uid://c7tqguxrsbftq" path="res://main scene/child scenes/health_bar.tscn" id="3_adtqx"]
+[ext_resource type="PackedScene" uid="uid://cwi50x07lbbbq" path="res://main scene/child scenes/mode_bar.tscn" id="4_s6vu8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_123sg"]
 
@@ -40,7 +41,21 @@ mesh = SubResource("PlaneMesh_iiy0a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5)
 
 [node name="HealthBar" parent="." instance=ExtResource("3_adtqx")]
-offset_left = 330.0
-offset_top = 44.0
-offset_right = 830.0
-offset_bottom = 71.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 27.0
+offset_right = 250.0
+offset_bottom = 54.0
+grow_horizontal = 2
+
+[node name="ModeBar" parent="." instance=ExtResource("4_s6vu8")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -182.0
+offset_top = 55.0
+offset_right = 183.0
+offset_bottom = 82.0
+grow_horizontal = 2

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cwi50x07lbbbq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iqw33"]
+bg_color = Color(0.78, 0, 0.0129998, 1)
+
+[node name="ModeBar" type="ProgressBar"]
+offset_right = 365.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_iqw33")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
