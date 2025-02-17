@@ -3,19 +3,35 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 5.0
 const GRAVITY = 9.8
-const ATTACK_COOLDOWN = 0.5  # Cooldown between attacks
-const PUNCH_FORCE = 10.0  # Force applied to the player and enemy during a punch
+const ATTACK_COOLDOWN = 0.5
+const PUNCH_FORCE = 10.0
 
 @export var mouse_sensitivity: float = 0.002  
 
 var rotation_x = 0.0
 var is_attacking = false
-var last_attack_time = 0.0  # Track the last attack time
+var last_attack_time = 0.0 
 
-@onready var camera_pivot = $CameraPivot  # Reference to camera pivot
+@onready var camera_pivot = $CameraPivot
+@onready var healthbar = $HealthBar 
+
+# Starting health
+var max_health = 100
+var current_health = 100
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func take_damage(amount: int):
+	current_health -= amount
+	current_health = max(current_health, 0)  # Prevent health from going below 0
+	healthbar.set_health(current_health)  # Update health bar
+	if current_health <= 0:
+		die()  # Handle player deathandle player death
+
+func die():
+	print("Player has died.")
+	# Implement death behavior (e.g., respawn, game over screen, etc.)
 
 func _input(event):
 	if event is InputEventMouseMotion:
