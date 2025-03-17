@@ -1,15 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6l474bdqo67l"]
+[gd_scene load_steps=14 format=3 uid="uid://b6l474bdqo67l"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_g7h5f"]
 [ext_resource type="PackedScene" uid="uid://bmb0807o2ij13" path="res://main scene/child scenes/enemy.tscn" id="2_5551l"]
 [ext_resource type="PackedScene" uid="uid://c7tqguxrsbftq" path="res://main scene/child scenes/health_bar.tscn" id="3_adtqx"]
 [ext_resource type="PackedScene" uid="uid://cwi50x07lbbbq" path="res://main scene/child scenes/mode_bar.tscn" id="4_s6vu8"]
+[ext_resource type="PackedScene" uid="uid://cl8xbh1rtewqj" path="res://Lebron/Lebonbon.blend" id="5_iq6iv"]
+[ext_resource type="PackedScene" uid="uid://ck33t26tqflva" path="res://Arena1.tscn" id="6_q6pa2"]
+[ext_resource type="PackedScene" uid="uid://qexhhtdt4t66" path="res://Arena1/ChineseArena1.blend" id="7_lgvq8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_123sg"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_1y87l"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_iiy0a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkjko"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uex5l"]
+
+[sub_resource type="PlaceholderMesh" id="PlaceholderMesh_dbhip"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -59,3 +68,27 @@ offset_top = 55.0
 offset_right = 183.0
 offset_bottom = 82.0
 grow_horizontal = 2
+
+[node name="Lebonbon" parent="." instance=ExtResource("5_iq6iv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.77182, 0, 3.93254)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Lebonbon"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lebonbon/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.622754, 0)
+shape = SubResource("CapsuleShape3D_jkjko")
+
+[node name="Node3D" parent="." instance=ExtResource("6_q6pa2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.1857, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568928, 0.042367)
+shape = SubResource("ConcavePolygonShape3D_uex5l")
+
+[node name="ChineseArena1" parent="." instance=ExtResource("7_lgvq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1401, 0, 12.9199)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ChineseArena1"]
+mesh = SubResource("PlaceholderMesh_dbhip")
