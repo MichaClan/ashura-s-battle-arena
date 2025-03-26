@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmb0807o2ij13"]
 
-[ext_resource type="Script" path="res://scripts/EnemyHealth.gd" id="1_cvwss"]
+[ext_resource type="Script" uid="uid://48efpkkx4df0" path="res://scripts/EnemyHealth.gd" id="1_cvwss"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_a1orc"]
 
