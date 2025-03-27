@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck33t26tqflva"]
-
-[sub_resource type="Resource" id="Resource_7ahp8"]
-metadata/__load_path__ = "res://Arena1/ChineseArena1.blend"
-
-[node name="Node3D" type="Node3D"]
-
-[node name="ChineseArena1" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31563, -4.76837e-07, -0.495981)

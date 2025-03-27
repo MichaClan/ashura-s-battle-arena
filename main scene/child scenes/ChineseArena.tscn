@@ -1,0 +1,115 @@
+[gd_scene load_steps=12 format=3 uid="uid://cawucgbvr7plt"]
+
+[ext_resource type="PackedScene" uid="uid://djaa4r0wbu8fk" path="res://ChineseArena/ChineseArena1glb.glb" id="1_0ydh1"]
+[ext_resource type="Script" uid="uid://cpsq7qelnx5uj" path="res://scripts/PlayerMovement.gd" id="2_ewpbu"]
+[ext_resource type="PackedScene" uid="uid://bn2qx4k2akcl7" path="res://Meshes/BasicCharacter.glb" id="3_53qhx"]
+[ext_resource type="Script" uid="uid://ci1thnv2o2w51" path="res://main scene/right_fist_area.gd" id="4_qjtrj"]
+[ext_resource type="PackedScene" uid="uid://bmlhassbnw7at" path="res://Meshes/SimpleGrass2.glb" id="5_53qhx"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_53qhx"]
+map_width = 10
+map_depth = 10
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0rstx"]
+size = Vector3(0.28196, 1.68018, 1.76398)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_680y8"]
+size = Vector3(1.31416, 1.23853, 0.494019)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_53qhx"]
+height = 1.60413
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_numci"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_vxnm8"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 8.49696, 9.35559, 0)
+shadow_enabled = true
+
+[node name="ChineseArena1glb" parent="." instance=ExtResource("1_0ydh1")]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, -0.854892, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ChineseArena1glb"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ChineseArena1glb/StaticBody3D"]
+transform = Transform3D(0.724684, 0, 0, 0, 1, 0, 0, 0, 0.721005, -0.133301, 1.06807, -1.53949)
+shape = SubResource("HeightMapShape3D_53qhx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="ChineseArena1glb/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.03434, 1.84157, 0.309117)
+shape = SubResource("BoxShape3D_0rstx")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="ChineseArena1glb/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.12534, 1.67995, -4.52205)
+shape = SubResource("BoxShape3D_680y8")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03222, 0)
+script = ExtResource("2_ewpbu")
+
+[node name="BasicCharacter" parent="Player" instance=ExtResource("3_53qhx")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.934961, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1.00341, 0, 0, 0, 1.00341, 0, 0, 0, 0.715535, 0, -0.135292, 0)
+shape = SubResource("CylinderShape3D_53qhx")
+
+[node name="CameraPivot" type="Node3D" parent="Player"]
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.962833, 0.270096, 0, -0.270096, 0.962833, 0, 1.30913, 1.59416)
+
+[node name="RightFistArea" type="Area3D" parent="Player"]
+script = ExtResource("4_qjtrj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/RightFistArea"]
+transform = Transform3D(1.99158, 0, 0, 0, 1.99158, 0, 0, 0, 1.99158, 0, 0, -0.771158)
+shape = SubResource("SphereShape3D_numci")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_vxnm8")
+
+[node name="rostlinka_07c_ske_FBX" type="Node3D" parent="."]
+transform = Transform3D(0.0524116, 0, 0, 0, 0.057346, 0, 0, 0, 0.0669287, 0, 0, 38.5281)
+
+[node name="RootNode" type="Node3D" parent="rostlinka_07c_ske_FBX"]
+
+[node name="Forest001" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, 49.9455, 2.56838, 17.0463)
+
+[node name="ground_close_04" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, 49.9455, 2.56838, 17.0463)
+
+[node name="r12_a" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, -3.54152, 2.71464, 1.64034)
+
+[node name="r12_b" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, 2.9446, 2.82672, -4.22732)
+
+[node name="r12_c" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, 2.15902, 2.83921, 2.49394)
+
+[node name="rostlinka_07_ground" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.632765, 3.0971e-09, 0.0331618, -0.0330806, 0.0443202, 0.631215, -0.00231953, -0.632081, 0.0442594, 0.265981, 2.77453, -0.169941)
+
+[node name="Object_6" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode/rostlinka_07_ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41198, 2.32454, 6.18146)
+
+[node name="rostlinka_07c" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, -0.00573328, 3.14999, 0.00692459)
+
+[node name="rostlinka_7c_scater" type="Node3D" parent="rostlinka_07c_ske_FBX/RootNode"]
+transform = Transform3D(0.01, 0, 0, 0, -3.57628e-09, 0.01, 0, -0.01, -3.57628e-09, 49.9455, 2.56838, 17.0463)
+
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1.00523, 0, 0, 0, 1.00523, 0, 0, 0, 1.00523, 3.59463, 0, 17.5496)
+
+[node name="SimpleGrass2" parent="." instance=ExtResource("5_53qhx")]
+transform = Transform3D(1.39469, 0, 0, 0, 1, 0, 0, 0, 1.32213, 1.71404, 0, 11.502)
+
+[node name="SimpleGrass3" parent="." instance=ExtResource("5_53qhx")]
+transform = Transform3D(1.39469, 0, 0, 0, 1, 0, 0, 0, 1.32213, 1.71404, 0, 11.502)

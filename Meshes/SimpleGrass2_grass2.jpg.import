@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq54mhjsi51mq"
-path.s3tc="res://.godot/imported/lebron_james_2.png-1a059c5745cbd04d2b2883641a47466f.s3tc.ctex"
+uid="uid://bvgogsifbvxps"
+path.s3tc="res://.godot/imported/SimpleGrass2_grass2.jpg-5a33e6b5838548a758c44a02cbe30da4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "13be80a8fd73265ed3f8ab1f9b16431c"
+}
 
 [deps]
 
-source_file="res://lebron_james_2.png"
-dest_files=["res://.godot/imported/lebron_james_2.png-1a059c5745cbd04d2b2883641a47466f.s3tc.ctex"]
+source_file="res://Meshes/SimpleGrass2_grass2.jpg"
+dest_files=["res://.godot/imported/SimpleGrass2_grass2.jpg-5a33e6b5838548a758c44a02cbe30da4.s3tc.ctex"]
 
 [params]
 

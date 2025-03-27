@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccpvouse3w35v"
-path.s3tc="res://.godot/imported/lebron_james_1.png-f1d3855f692e08bc18436b904d026b68.s3tc.ctex"
+uid="uid://baejlyeuuxl0q"
+path.s3tc="res://.godot/imported/ChineseArena1glb_Image_1.png-0bba4b9aa7f5457c86a49f78da6d2256.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "9f722444c502d7b10e62e10d31ca3f06"
+}
 
 [deps]
 
-source_file="res://lebron_james_1.png"
-dest_files=["res://.godot/imported/lebron_james_1.png-f1d3855f692e08bc18436b904d026b68.s3tc.ctex"]
+source_file="res://ChineseArena/ChineseArena1glb_Image_1.png"
+dest_files=["res://.godot/imported/ChineseArena1glb_Image_1.png-0bba4b9aa7f5457c86a49f78da6d2256.s3tc.ctex"]
 
 [params]
 
